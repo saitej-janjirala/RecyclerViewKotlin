@@ -3,6 +3,7 @@ package com.example.recyclerviewimplementation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.animation.AnimationUtils
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -37,6 +38,7 @@ class MainActivity : AppCompatActivity(),MyAdapter.onDeleteClickListener {
         //lets attach our adapter to the recycler view.
         myAdapter= MyAdapter(this,mylist,this)
         myrecyclerview.adapter=myAdapter
+        myrecyclerview.startAnimation(AnimationUtils.loadAnimation(this,R.anim.item_animation_fall_down))
     }
 
     override fun onDeleteclick(myData: MyData, position: Int) {
